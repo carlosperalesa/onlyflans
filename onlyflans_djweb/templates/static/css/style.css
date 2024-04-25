@@ -2,6 +2,15 @@
     text-align: left;
 }
 
-.text-right {
+{% comment %} .text-right {
     text-align: right;
+} {% endcomment %}
+
+.navbar  {
+    background-color: #FFF9BA !important;
+}
+
+
+.footer {
+    background-color: #FFF9BA !important;
 }

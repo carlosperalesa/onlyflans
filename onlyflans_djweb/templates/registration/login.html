@@ -26,7 +26,7 @@
                 
                 <script>
                 function myFunction() {
-                    var x = document.getElementById("id_password");  // Asegúrate de usar el ID correcto para el campo de contraseña
+                    var x = document.getElementById("id_password");
                     if (x.type === "password") {
                         x.type = "text";
                     } else {
@@ -39,61 +39,3 @@
     </div>
 </div>
 {% endblock %}
-
-
-
-
-
-
-
-
-{% comment %} 
-{% block content %}
-
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-    <div class="card shadow mb-3 p-3 mt-3" style="width: 320px">
-        <div class="card-body">
-            
-            <h5 class="card-title">Iniciar sesión</h5>
-
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="d-flex justify-content-between m-3">
-                    <label for="ShowPass">Mostrar contraseña</label>
-                    <input class="form-check-input" type="checkbox" id="ShowPass" onclick="myFunction()">
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary me-2">Iniciar sesión</button>
-                    <button type="button" class="btn btn-secondary">Regístrate</button>
-                </div>
-            </form>
-            
-            <script>
-            function myFunction() {
-                var x = document.getElementById("password");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
-            }
-            </script>
-            
-        </div>
-    </div>
-</div>
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-</script>
-
-{% endblock %} 
-{% endcomment %}

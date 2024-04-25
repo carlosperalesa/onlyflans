@@ -9,11 +9,14 @@
         {% if producto.is_private %}
             {% if user.is_authenticated %}
 
-            <div class="card shadow m-3" style="width: 16rem;">
+            <div class="card shadow m-4" style="width: 16rem;">
                     <img class="card-img-top" src="{{ producto.imagen.url }}" alt="{{producto.nombre}}" height="200" width="170">
                     <div class="card-body">
                         <h5 class="card-title">{{producto.nombre}}</h5>
                         <p class="card-text">{{producto.descripcion}}</p>
+                    </div>
+                    <div class="card-footer footer">
+                        <p class="card-text">Producto Solo para Clientes Premium!</p>
                     </div>
                 </div>
             {% endif %}
