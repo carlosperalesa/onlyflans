@@ -16,18 +16,19 @@ Including another URLconf
 """
 
 from django.urls import path
-from onlyflans_djweb.views import index, footer, header, bienvenidos, productos, acerca, contacto
-
+from onlyflans_djweb.views import *
 
 urlpatterns = [
 
     path('', index, name='index'),
     path('footer/', footer, name='footer'),
     path('header/', header, name='header'),
-    path('bienvenidos/', bienvenidos, name='bienvenidos'),
+    path('login/', login, name='login'),
     path('acerca/', acerca, name='acerca'),
     path('contacto/', contacto, name='contacto'),
     path('productos/', productos, name='productos'),
+    path('register/', register, name='register'),
+    path('salir/', salir, name='salir'),
 
 ]
 

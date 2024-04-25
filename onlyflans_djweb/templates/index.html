@@ -38,6 +38,12 @@
     <div class="body card mb-3 flex-grow-1 mx-3 shadow" style="border-radius: 15px;">
         {% block content %}
         
+        {% if request.user.is_authenticated %}
+        Bienvenido {{user.username | title}} ({{ user.email }})
+        {% else %}
+        Bienvenido al mundo de los flanes!
+        {% endif %}
+
         {% endblock content %}
     </div>
 

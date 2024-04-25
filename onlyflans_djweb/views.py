@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
-from onlyflans_djweb.forms import ContactForm
+from onlyflans_djweb.forms import ContactForm, CustomUserCreationForm
 from onlyflans_djweb.models import Product
 from django.contrib import messages
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+
 # Create your views here.
 
 
@@ -17,10 +21,7 @@ def header(request):
     return render(request, 'header.html')
 
 
-def bienvenidos(request):
-    return render(request, 'bienvenidos.html')
-
-
+@login_required
 def productos(request):
     producto = Product.objects.all()
     return render(request, 'productos.html', {"productos": producto})
@@ -31,19 +32,39 @@ def acerca(request):
 
 
 def contacto(request):
+    form_submitted = False
+    contacto_form = ContactForm()
     if request.method == 'POST':
         contacto_form = ContactForm(request.POST)
         if contacto_form.is_valid():
             contacto_form.save()
+            form_submitted = True
+
+    return render(request, 'contacto.html', {"form": contacto_form, "form_submitted": form_submitted})
+
+
+def login(request):
+    form = AuthenticationForm()  # Crea una instancia del formulario
+    # Pasa el formulario al contexto
+    return render(request, 'registration/login.html', {'form': form})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
             messages.success(
-                request, 'Gracias por contactarnos, nos pondremos en contacto contigo en breve.')
-            # Redirige a la misma página de contacto
-            return redirect('contacto')
+                request, 'Tu registro se ha completado con éxito. ¡Bienvenido a la comunidad!')
+            return redirect('index')  # Redirige a la URL con nombre 'index'
+        else:
+            messages.error(
+                request, 'Hubo un problema con tu registro. Por favor, intenta de nuevo.')
     else:
-        contacto_form = ContactForm()
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
 
-    return render(request, 'contacto.html', {"form": contacto_form})
 
-
-# def error_404(request, exception):
-#     return render(request, 'onlyflans_djweb\templates\custom\404.html')
+def salir(request):
+    logout(request)
+    return redirect('/')
