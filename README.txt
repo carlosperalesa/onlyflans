@@ -2,7 +2,7 @@ van hasta el hito 3
 correccion detalles esteticos y se implementan los usuarios
 se agrega la pagina tablas para hacer mas sencilla la vista de productos
 se agrega la autenticacion para ver ciertos productos
-
+se agrega el tercer y cuarto usuario y nuevas tablas
 
 source ./venv/Scripts/activate
 cd onlyflans

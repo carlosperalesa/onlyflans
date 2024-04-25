@@ -1,10 +1,11 @@
-{% extends 'index.html' %} 
+{% extends 'index.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 <h1>Tablas</h1>
 
 <div class="accordion">
+    <!-- Sección de Productos -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingProducts">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
@@ -32,9 +33,77 @@
                     </tr>
                 {% endfor %}
             </tbody>
-        </table>
+          </table>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- Sección de Usuarios -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingUsers">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
+          Usuarios
+        </button>
+      </h2>
+      <div id="collapseUsers" class="accordion-collapse collapse" aria-labelledby="headingUsers" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <table class="table table-hover table-bordered table-sm ">
+            <thead>
+                <tr>
+                    <th>Nombre de usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Contactos -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingContacts">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContacts" aria-expanded="false" aria-controls="collapseContacts">
+          Contactos
+        </button>
+      </h2>
+      <div id="collapseContacts" class="accordion-collapse collapse" aria-labelledby="headingContacts" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <table class="table table-hover table-bordered table-sm ">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Asunto</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                    <tr>
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.subject }}</td>
+                        <td>{{ contact.message }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+</div>
 {% endblock %}
+

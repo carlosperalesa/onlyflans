@@ -3,8 +3,10 @@ SELECT name FROM sqlite_master WHERE type='table';
 
 SELECT * FROM onlyflans_djweb_product;
 SELECT * FROM onlyflans_djweb_contact;
-SELECT * FROM auth_user
-;
+SELECT * FROM auth_user;
+
+
+
 
 -- UPDATE onlyflans_djweb_product
 -- SET imagen = REPLACE(imagen, 'media/img/productos/', '')
