@@ -23,3 +23,6 @@ UPDATE onlyflans_djweb_product SET flan_uuid = '11656c31-65dc-482d-917b-2e81e7fc
 UPDATE onlyflans_djweb_product SET flan_uuid = 'cbd6d828-79da-4637-a881-5106d7313b84' WHERE nombre = 'Café';
 
 UPDATE onlyflans_djweb_product SET descripcion = 'Porque nada dice "Buenos días" como un flan con sabor a café.' WHERE nombre = 'Café';
+
+UPDATE onlyflans_djweb_product SET is_private = 1 WHERE slug IN ('cafe', 'chocolate-blanco', 'premium');
+

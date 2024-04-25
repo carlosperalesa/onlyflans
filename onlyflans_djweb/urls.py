@@ -29,7 +29,7 @@ urlpatterns = [
     path('productos/', productos, name='productos'),
     path('register/', register, name='register'),
     path('salir/', salir, name='salir'),
-
+    path('tables/', tables, name='tables'),
 ]
 
 # handler404 = views.error_404
