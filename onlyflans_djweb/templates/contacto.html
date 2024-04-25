@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+    <form action="{% url 'contacto' %}" method="POST" class="p-4 rounded bg-light shadow" onsubmit="showAlert()">
+        {% csrf_token %}
+        <div class="mb-3">
+            {% for field in form %}
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {{ field|add_class:"form-control" }}
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="reset" class="btn btn-secondary ms-2">Limpiar</button>
+    </form>
+
+    <script>
+        function showAlert() {
+            alert("Gracias por enviar el formulario!");
+        }
+    </script>
+{% endblock %}
+

@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <html lang="es-cl">
+    <!-- bootstrap -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <!-- css -->
+    <link href="{% static '/css/style.css' %}" rel="stylesheet" />
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/334a740400.js" crossorigin="anonymous"></script>
+    <title>
+        {%block title%}OnlyFlans{%endblock title%}
+    </title>
+    <style>
+        .navbar,
+        .footer {
+            background-color: #FFF9BA !important;
+        }
+    </style>
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+    <!--header-->
+    <div class="header card shadow mb-3">
+        {% block header %}
+        {% include 'header.html' %}
+        {% endblock header %}
+    </div>
+
+    <!--body-->
+    <div class="body card mb-3 flex-grow-1 mx-3 shadow" style="border-radius: 15px;">
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
+
+    <!--footer-->
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock footer %} 
+
+</body>
+
+<script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>        
+
+{% comment %} 
+
+
+
+{% endcomment %}

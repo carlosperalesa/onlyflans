@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+
+{% block title %}Productos{% endblock %}
+
+
+{% block content %}
+<div class="container d-flex justify-content-center flex-wrap">
+
+    {% for producto in productos %}
+
+    <div class="card shadow m-3" style="width: 16rem;">
+        <img class="card-img-top" src="{{ producto.imagen.url }}" alt="{{producto.nombre}}" height="200" width="170">
+        <div class="card-body">
+            <h5 class="card-title">{{producto.nombre}}</h5>
+            <p class="card-text">{{producto.descripcion}}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
