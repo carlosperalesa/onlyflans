@@ -1,16 +1,15 @@
+
+
 .table {
     text-align: left;
 }
-
-{% comment %} .text-right {
-    text-align: right;
-} {% endcomment %}
 
 .navbar  {
     background-color: #FFF9BA !important;
 }
 
-
 .footer {
     background-color: #FFF9BA !important;
+    background-size: contain;
+    color: ;
 }

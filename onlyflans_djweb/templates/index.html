@@ -22,6 +22,23 @@
         .footer {
             background-color: #FFF9BA !important;
         }
+        
+        .card-title {
+            color: #333;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .card-text {
+            color: #555;
+            font-size: 1.2em;
+        }
+        .my-card-body {
+            background-image: url('\static\img\hero.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
     </style>
 </head>
 
@@ -34,18 +51,25 @@
         {% endblock header %}
     </div>
 
-    <!--body-->
-    <div class="body card mb-3 flex-grow-1 mx-3 shadow" style="border-radius: 15px;">
-        {% block content %}
-        
-        {% if request.user.is_authenticated %}
-        Bienvenido {{user.username | title}} ({{ user.email }})
-        {% else %}
-        Bienvenido al mundo de los flanes!
-        {% endif %}
+<!--body-->
+<div class="card mb-3 mx-3 shadow rounded overflow-hidden">
+    <div class="card-body hero text-white p-5">
 
+        {% block content %}
+        <h1 class="card-title display-4">
+            {% if request.user.is_authenticated %}
+            Bienvenido {{user.username | title}} ({{ user.email }})
+            {% else %}
+            Bienvenido al mundo de los flanes!
+            {% endif %}
+        </h1>
+        <p class="card-text lead">
+            Somos la tienda online donde encontrarás los flanes artesanales más deliciosos y de mayor calidad. Elaboramos nuestros flanes con ingredientes frescos y totalmente naturales, ideales para los amantes de los flanes.
+            Ofrecemos una amplia variedad de flanes caseros hechos a mano con ingredientes de la más alta calidad. Desde los clásicos de vainilla y chocolate hasta sabores únicos como dulce de leche y café.
+        </p>
         {% endblock content %}
     </div>
+</div>
 
     <!--footer-->
     {% block footer %}
